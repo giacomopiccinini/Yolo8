@@ -21,8 +21,8 @@ def parse():
     # Model
     detect_group.add_argument(
         "--model",
-        const="Models/yolov8m.pt",
-        default="Models/yolov8m.pt",
+        const="Models/Pretrained/yolov8m.pt",
+        default="Models/Pretrained/yolov8m.pt",
         nargs="?",
         type=str,
         help="Path to the pretrained YOLO model to be used",
@@ -85,7 +85,67 @@ def parse():
         type=bool,
         help="Save image with bbs",
     )
+    
+    
+    # * #################################
+    # * ########### FINETUNE ############
+    # * #################################
 
+    # Add group for general info on the project
+    finetune_group = parser.add_argument_group("Finetune", "Arguments for finetuning")
+
+    # Add arguments
+
+    # Model
+    finetune_group.add_argument(
+        "--pretrained",
+        const="Models/Pretrained/yolov8m.pt",
+        default="Models/Pretrained/yolov8m.pt",
+        nargs="?",
+        type=str,
+        help="Path to the pretrained YOLO model to be used",
+    )
+
+    # Data
+    finetune_group.add_argument(
+        "--data",
+        const="datasets/data.yaml",
+        default="datasets/data.yaml",
+        nargs="?",
+        type=str,
+        help="Path to dataset in YOLO8 format. This flag should point to the .yaml file",
+    )
+
+    # Epochs
+    finetune_group.add_argument(
+        "--epochs",
+        const=3,
+        default=3,
+        nargs="?",
+        type=int,
+        help="Finetuning epochs",
+    )
+
+    # Batch
+    finetune_group.add_argument(
+        "--batch",
+        const=8,
+        default=8,
+        nargs="?",
+        type=int,
+        help="Finetuning batch size",
+    )
+    
+    # Save finetuned model path
+    finetune_group.add_argument(
+        "--save_path",
+        const="Models/Finetuned",
+        default="Models/Finetuned",
+        nargs="?",
+        type=str,
+        help="Path where to store finetuned model",
+    )
+    
     # * #################################
     # * ############ PARSING ############
     # * #################################
