@@ -1,0 +1,10 @@
+# Pre-trained models for Yolo v8
+# Find them at https://github.com/ultralytics/ultralytics/tree/main/ultralytics/models/v8
+
+models: 
+  - yolov8l
+  - yolov8m
+  - yolov8n
+  - yolov8s
+  - yolov8x
+  - yolov8x6
