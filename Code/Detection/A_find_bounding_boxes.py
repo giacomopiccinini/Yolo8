@@ -4,14 +4,14 @@ from ultralytics import YOLO
 from yaml import safe_load
 
 
-def find_bounding_boxes(images: list, model) -> list:
+def find_bounding_boxes(images: list, model, class_path) -> list:
 
     """Find the bounding boxes associated to a list of images. Images should already be
     in the numpy array format. Returns a list of pandas DataFrame corresponding to the
     result of the detection"""
 
     # Load YOLO classes
-    with open("Info/classes.yaml", "r") as file:
+    with open(class_path, "r") as file:
         yolo_classes = safe_load(file)["names"]
 
     # Define dataframe columns

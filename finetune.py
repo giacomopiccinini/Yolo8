@@ -18,7 +18,10 @@ if __name__ == '__main__':
     # Finetune the model
     results = model.train(data=args.data, 
                           epochs=args.epochs, 
-                          batch=args.batch)  
+                          batch=args.batch, 
+                          pretrained=True,
+                          lr0=0.0001,
+                          lrf=0.01)  
     
     # Save model
-    model.export()
+    # model.export()

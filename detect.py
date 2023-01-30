@@ -2,6 +2,7 @@ import cv2
 import logging
 from tqdm import tqdm
 from ultralytics import YOLO
+from pathlib import Path
 
 from Code.Loader.StreamLoader import StreamLoader
 from Code.Loader.MediaLoader import MediaLoader
@@ -31,6 +32,9 @@ if __name__ == "__main__":
     # Load a pre-trained model
     log.info("Loading stream")
     model = YOLO(args.model)
+    
+    # Get path to classes stored in yaml
+    class_path = Path.joinpath(Path(args.model).parent, "classes.yaml")
 
     # Set variables for video writing (when necessary)
     video_name, video_writer = None, None
@@ -39,7 +43,7 @@ if __name__ == "__main__":
     for name, image, capture in tqdm(Data):
 
         # Find bounding boxes
-        bounding_boxes = find_bounding_boxes(image, model=model)[0]
+        bounding_boxes = find_bounding_boxes(image, model=model, class_path=class_path)[0]
 
         # Filter by class
         if args.classes:
