@@ -19,3 +19,6 @@ if __name__ == '__main__':
     results = model.train(data=args.data, 
                           epochs=args.epochs, 
                           batch=args.batch)  
+    
+    # Save model
+    model.export()
