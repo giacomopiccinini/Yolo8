@@ -39,8 +39,9 @@ def find_bounding_boxes(images: list, model, class_path) -> list:
         # Fix datatypes
         df = df.convert_dtypes()
 
-        # Add descriptive class
-        df["class"] = np.vectorize(yolo_classes.get)(df["class_numeric"])
+        if len(df) > 0:
+            # Add descriptive class
+            df["class"] = np.vectorize(yolo_classes.get)(df["class_numeric"])
 
         # Append to list
         detection_df_list.append(df)

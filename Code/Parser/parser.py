@@ -59,8 +59,8 @@ def parse():
     # Show result
     detect_group.add_argument(
         "--show",
-        const=True,
-        default=True,
+        const=False,
+        default=False,
         nargs="?",
         type=bool,
         help="Show result of detection",
