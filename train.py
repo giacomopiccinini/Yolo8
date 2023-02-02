@@ -17,7 +17,7 @@ if __name__ == '__main__':
     log = logging.getLogger(__name__)
 
     # Parse arguments related to detection
-    args = parse()["Finetune"]
+    args = parse()["Train"]
     
     # Experiment
     experiment = comet_ml.Experiment()
@@ -29,6 +29,6 @@ if __name__ == '__main__':
     model.train(data=args.data, 
                           epochs=args.epochs, 
                           batch=args.batch, 
-                          pretrained=False,
+                          pretrained=True,
                           lr0=0.0001,
                           lrf=0.01)  
