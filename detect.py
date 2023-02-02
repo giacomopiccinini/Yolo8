@@ -1,5 +1,11 @@
 import cv2
 import logging
+
+logging.getLogger("everett").setLevel(logging.ERROR)
+logging.getLogger("requests").setLevel(logging.ERROR)
+logging.getLogger("urllib3").setLevel(logging.ERROR)
+logging.getLogger("matplotlib").setLevel(logging.ERROR)
+
 from tqdm import tqdm
 from ultralytics import YOLO
 from pathlib import Path
@@ -30,7 +36,7 @@ if __name__ == "__main__":
         Data = StreamLoader()
 
     # Load a pre-trained model
-    log.info("Loading stream")
+    log.info("Loading model")
     model = YOLO(args.model)
     
     # Get path to classes stored in yaml

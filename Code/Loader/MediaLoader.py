@@ -161,6 +161,10 @@ class MediaLoader:
         else:
             # Read BGR image
             image_BGR = cv2.imread(path, -1)
+            
+            # Remove fourth channel if present (alpha channel)
+            if image_BGR.shape[-1] == 4:
+                image_BGR = image_BGR[..., :3]
 
             # Increase counter
             self.count += 1
