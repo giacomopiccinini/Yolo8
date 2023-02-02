@@ -9,3 +9,4 @@ venv/
 *.pt
 datasets/*
 runs/
+.comet.config

@@ -86,18 +86,17 @@ def parse():
         help="Save image with bbs",
     )
     
-    
     # * #################################
-    # * ########### FINETUNE ############
+    # * ############ TRAIN ##############
     # * #################################
 
     # Add group for general info on the project
-    finetune_group = parser.add_argument_group("Finetune", "Arguments for finetuning")
+    train_group = parser.add_argument_group("Train", "Arguments for training")
 
     # Add arguments
 
     # Model
-    finetune_group.add_argument(
+    train_group.add_argument(
         "--pretrained",
         const="Models/Pretrained/yolov8m.pt",
         default="Models/Pretrained/yolov8m.pt",
@@ -107,7 +106,7 @@ def parse():
     )
 
     # Data
-    finetune_group.add_argument(
+    train_group.add_argument(
         "--data",
         const="datasets/data.yaml",
         default="datasets/data.yaml",
@@ -117,35 +116,36 @@ def parse():
     )
 
     # Epochs
-    finetune_group.add_argument(
+    train_group.add_argument(
         "--epochs",
         const=3,
         default=3,
         nargs="?",
         type=int,
-        help="Finetuning epochs",
+        help="Training epochs",
     )
 
     # Batch
-    finetune_group.add_argument(
+    train_group.add_argument(
         "--batch",
         const=8,
         default=8,
         nargs="?",
         type=int,
-        help="Finetuning batch size",
+        help="Train batch size",
     )
     
     # Save finetuned model path
-    finetune_group.add_argument(
+    train_group.add_argument(
         "--save_path",
-        const="Models/Finetuned",
-        default="Models/Finetuned",
+        const="Models/Trained",
+        default="Models/Trained",
         nargs="?",
         type=str,
-        help="Path where to store finetuned model",
+        help="Path where to store trained model",
     )
     
+       
     # * #################################
     # * ############ PARSING ############
     # * #################################

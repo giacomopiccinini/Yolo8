@@ -1,5 +1,12 @@
 import logging
 
+logging.getLogger("everett").setLevel(logging.ERROR)
+logging.getLogger("requests").setLevel(logging.ERROR)
+logging.getLogger("urllib3").setLevel(logging.ERROR)
+logging.getLogger("matplotlib").setLevel(logging.ERROR)
+
+import comet_ml
+
 from ultralytics import YOLO
 from Code.Parser.parser import parse
 
@@ -11,17 +18,17 @@ if __name__ == '__main__':
 
     # Parse arguments related to detection
     args = parse()["Finetune"]
+    
+    # Experiment
+    experiment = comet_ml.Experiment()
 
     # Load a model
     model = YOLO(args.pretrained)
-
+    
     # Finetune the model
-    results = model.train(data=args.data, 
+    model.train(data=args.data, 
                           epochs=args.epochs, 
                           batch=args.batch, 
-                          pretrained=True,
+                          pretrained=False,
                           lr0=0.0001,
                           lrf=0.01)  
-    
-    # Save model
-    # model.export()
