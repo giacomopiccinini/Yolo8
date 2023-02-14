@@ -5,7 +5,7 @@ logging.getLogger("requests").setLevel(logging.ERROR)
 logging.getLogger("urllib3").setLevel(logging.ERROR)
 logging.getLogger("matplotlib").setLevel(logging.ERROR)
 
-import comet_ml
+#import comet_ml
 
 from ultralytics import YOLO
 from Code.Parser.parser import parse
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     args = parse()["Train"]
     
     # Experiment
-    experiment = comet_ml.Experiment()
+    #experiment = comet_ml.Experiment()
 
     # Load a model
     model = YOLO(args.pretrained)
