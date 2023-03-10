@@ -49,11 +49,11 @@ if __name__ == "__main__":
     for name, image, capture in tqdm(Data):
 
         # Find bounding boxes
-        bounding_boxes = find_bounding_boxes(image, model=model, class_path=class_path)[0]
-
+        bounding_boxes = find_bounding_boxes(image, model=model, class_path=class_path, conf=args.confidence)[0]
+        
         # Filter by class
         if args.classes:
-            # bounding_boxes = [df.query('`class`== @args.classes') for df in bounding_boxes]
+            
             bounding_boxes = bounding_boxes.query("`class`== @args.classes")
 
         # Write boxes if needed

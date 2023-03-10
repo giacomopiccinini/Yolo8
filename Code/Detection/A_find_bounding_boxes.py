@@ -4,7 +4,7 @@ from ultralytics import YOLO
 from yaml import safe_load
 
 
-def find_bounding_boxes(images: list, model, class_path) -> list:
+def find_bounding_boxes(images: list, model, class_path, conf:float=0.25) -> list:
 
     """Find the bounding boxes associated to a list of images. Images should already be
     in the numpy array format. Returns a list of pandas DataFrame corresponding to the
@@ -25,7 +25,7 @@ def find_bounding_boxes(images: list, model, class_path) -> list:
     ]
 
     # Use the model
-    results = model.predict(images)
+    results = model.predict(images, conf=conf)
 
     # Init list of detection
     detection_df_list = []
