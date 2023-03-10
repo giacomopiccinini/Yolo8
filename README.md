@@ -1,18 +1,15 @@
-if it does not find the model in that path, it is downloaded and stored at that location. 
+## Inference
 
-if you want to run on multiple images at once, import them as numpy arrays and then pass a list of array [image_1, image_2, ...]
+To run the model in inference mode
 
-access boxes, classes and probabilities with
+```
+python detect.py --source <PATH_TO_IMAGE> --model <PATH_TO_MODEL> --confidence <CONFIDENCE_THRESHOLD> --classes <CLASSES_TO_KEEP>
 
-results.boxes.boxes
-results.boxes.cls
-results.boxes.conf
+```
 
-notice that each row in boxes.boxes has length 6 because it contains also the conf and cls as 5th and 6th component 
+Explanation of parameters:
 
-Custom train following 
-https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
-
-Use model.predict(image, conf=0.2) to set a threshold in confidence under which we discard results, defaults to 0.25
-
-xyxy are (x_bottom_left, y_bottom_left, x_top_right, y_top_right)
+- *source*: path to file to be processed; 
+- *model*: path to the model to use for inference (the name of the pre-trained models available can be found in `Info/models.yaml`). If a pre-trained model is not present in the specified path, it will be automatically downloaded;
+- *confidence*: acceptable confidence in the prediction. Must be a float number between 0 and 1. Predictions below this confidence threshold will be ignored;
+- *classes*: classes to keep. These could be e.g. "person", "car", etc. The name of the classes for pre-trained models are available at `Info/classes.yaml`. 
