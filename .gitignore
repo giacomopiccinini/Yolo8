@@ -11,3 +11,4 @@ datasets/*/
 datasets/*.yaml
 runs/
 .comet.config
+.pytest_cache

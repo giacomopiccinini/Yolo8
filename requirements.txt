@@ -6,3 +6,6 @@ PyYAML==6.0
 tqdm==4.64.1
 ultralytics==8.0.9
 comet-ml
+fastapi[all]
+pytest
+modal-client

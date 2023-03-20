@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from ultralytics import YOLO
 from yaml import safe_load
 
 
