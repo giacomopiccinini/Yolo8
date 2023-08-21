@@ -13,7 +13,7 @@ from pathlib import Path
 from Code.Loader.StreamLoader import StreamLoader
 from Code.Loader.MediaLoader import MediaLoader
 from Code.Parser.parser import parse
-from Code.Detection.A_find_bounding_boxes import find_bounding_boxes
+from Code.Detection.B_find_bounding_boxes import find_bounding_boxes
 from Code.Techniques.Annotation.draw_bboxes import draw_bounding_boxes
 
 

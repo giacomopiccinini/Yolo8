@@ -1,11 +1,10 @@
+import comet_ml
 import logging
 
 logging.getLogger("everett").setLevel(logging.ERROR)
 logging.getLogger("requests").setLevel(logging.ERROR)
 logging.getLogger("urllib3").setLevel(logging.ERROR)
 logging.getLogger("matplotlib").setLevel(logging.ERROR)
-
-#import comet_ml
 
 from ultralytics import YOLO
 from Code.Parser.parser import parse

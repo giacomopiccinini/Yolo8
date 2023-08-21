@@ -1,0 +1,4 @@
+# Classes for YOLO trained on the COCO dataset. 
+
+names:
+  0: Face
